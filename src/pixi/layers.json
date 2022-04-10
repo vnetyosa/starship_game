@@ -1,0 +1,8 @@
+{
+    "layers": [
+        "background",
+        "starship",
+        "startSplash",
+        "gameOverSplash"
+    ]
+}
