@@ -10,5 +10,10 @@ export class Controller<M extends Model, V extends View<M>> extends Observable {
         super();
         this.model = model;
         this.view = view;
+        this.setupEvents();
+    }
+
+    setupEvents() {
+        // stub;
     }
 }

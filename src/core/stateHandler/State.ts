@@ -43,14 +43,14 @@ export abstract class State extends EventEmitter {
     }
 
     resetEventState() {
-        for (let event in this.requiredEvents) {
+        for (let event of this.requiredEvents) {
             const isRecieved = false;
             this.eventState[event] = isRecieved;
         }
     }
 
     onEventRecieved(event: string) {
-        if (this.isActive && event in this.requiredEvents) {
+        if (this.isActive && this.requiredEvents.includes(event)) {
             const isRecieved = true;
             this.eventState[event] = isRecieved;
             if (this.shouldLeaveState()) {

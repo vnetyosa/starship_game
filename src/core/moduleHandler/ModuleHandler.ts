@@ -1,17 +1,16 @@
+import { ModuleConstructor } from "../mvc/@types/Module";
 import { Module } from "../mvc/Module";
 
 interface ModulesConfig { 
-    [moduleName: string]: Module;
+    [moduleName: string]: ModuleConstructor;
 }
+let modules:any = {};
 
 export class ModuleHandler {
-    constructor(config: ModulesConfig) {
+    processModules(config: ModulesConfig) {
         for (let moduleName in config) {
-            this.proessModule(moduleName, config[moduleName]);
+            const constructor = config[moduleName];
+            modules[moduleName] = new constructor();
         }
-    }
-
-    proessModule(moduleName: string, module: Module) {
-        
     }
 }

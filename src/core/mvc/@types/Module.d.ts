@@ -1,9 +1,10 @@
 import { Controller } from "../Controller";
 import { Model } from "../Model";
+import { Module } from "../Module";
 import { View } from "../View";
 
 interface ModelConstructor {
-    new(): Model;
+    new(): Model
 }
 
 interface ViewConstructor {
@@ -12,6 +13,10 @@ interface ViewConstructor {
 
 interface ControllerConstructor {
     new(model: Model, view: View<Model>): Controller<Model, View<Model>>;
+}
+
+export interface ModuleConstructor {
+    new(): Module;
 }
 
 export type ModuleClasses = {

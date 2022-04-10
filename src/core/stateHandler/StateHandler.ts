@@ -13,6 +13,7 @@ export class StateHandler {
     public async processStates() {
         while (this._stateStack.length > 0) {
             const state = this._stateStack.shift() as State;
+            state.enter();
             this.emitEnteringEvents(state);
             this.processStateChanges(state);
             await this.waitForStateLeaving(state);
